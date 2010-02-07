@@ -82,12 +82,15 @@ Changes that are not explicitly stated as a CRUD function are assumed to be UPDA
 	# implicit changes, treated as UPDATE
 	>> @filter.merge!({ :name => ['dewberry','eggplant'] })
 	# @filter[:name].value => ['apple','banana','cherry','dewberry','eggplant']
+	
 	# explicit UPDATE
 	>> @filter.merge!({ :update => { :name => ['dewberry','eggplant'] } })
 	# @filter[:name].value => ['apple','banana','cherry','dewberry','eggplant']
+	
 	# explicit CREATE
 	>> @filter.merge!({ :creaet => { :name => ['dewberry','eggplant'] } })
 	# @filter[:name].value => ['dewberry','eggplant']
+	
 	# explicit DELETE
 	>> @filter.merge!({ :delete => { :name => nil } })
 	# @filter[:name] => nil
