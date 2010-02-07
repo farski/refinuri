@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Kalafarski"]
-  s.date = %q{2010-02-06}
+  s.date = %q{2010-02-07}
   s.description = %q{Helps clean up complex URLs with filtering query string, like you may find in an online store}
   s.email = %q{chris@farski.com}
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/refinuri/filters.rb",
      "lib/refinuri/helpers.rb",
      "lib/refinuri/parser.rb",
+     "lib/refinuri/utilities.rb",
      "refinuri.gemspec",
      "test/helper.rb",
      "test/test_array_filters.rb",
@@ -35,7 +36,8 @@ Gem::Specification.new do |s|
      "test/test_parser.rb",
      "test/test_range_filters.rb",
      "test/test_refinuri.rb",
-     "test/test_unbounded_range_filters.rb"
+     "test/test_unbounded_range_filters.rb",
+     "test/test_utilties.rb"
   ]
   s.homepage = %q{http://github.com/farski/refinuri}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -49,7 +51,8 @@ Gem::Specification.new do |s|
      "test/test_parser.rb",
      "test/test_range_filters.rb",
      "test/test_refinuri.rb",
-     "test/test_unbounded_range_filters.rb"
+     "test/test_unbounded_range_filters.rb",
+     "test/test_utilties.rb"
   ]
 
   if s.respond_to? :specification_version then

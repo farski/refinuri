@@ -12,5 +12,4 @@ module Refinuri
   include Refinuri::Parser
 end
 
-# ActionView::Base.send :include, Refinuri::Helpers
 # ApplicationController.send :include, Refinuri::Rails::Application::Controller
