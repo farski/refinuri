@@ -15,6 +15,12 @@ module Refinuri
         return self
       end
       
+      def to_h
+        filters = Hash.new
+        @filters.each { |key,value| filters[key] = value.value }
+        return filters
+      end
+      
       private        
         def modify_filters(hash, function = :create)
           case function
@@ -32,8 +38,8 @@ module Refinuri
               when Range then Filters::Range.new(value)
               when String
                 case value
-                  when /\d\.\./ then Filters::Range.new(value)
-                  when /\.\.\d/ then Filters::Range.new(value)
+                  when /\d\.\./ then Filters::UnboundedRange.new(value)
+                  when /\.\.\d/ then Filters::UnboundedRange.new(value)
                   else Filters::Array.new([value])
                 end
             end

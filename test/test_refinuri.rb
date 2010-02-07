@@ -28,5 +28,16 @@ class TestRefinuri < Test::Unit::TestCase
         assert_kind_of Range, Refinuri::Base::FilterSet.new({:key => 0...1}).filters[:key].value
       end
     end
+
+    context "when asked for standard output" do
+      setup do
+        @hsh = {:name => ['apple','banana'], :price => 0..1, :weight => '4..'}
+        @set = Refinuri::Base::FilterSet.new(@hsh)
+      end
+      
+      should "return a normal looking Hash" do
+        assert_equal @hsh, @set.to_h
+      end
+    end
   end
 end
