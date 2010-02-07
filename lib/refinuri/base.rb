@@ -1,5 +1,5 @@
 module Refinuri
-  module Base
+  module Base    
     class FilterSet
       attr_reader :filters
       def initialize(hash)
