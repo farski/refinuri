@@ -24,6 +24,10 @@ module Refinuri
       def to_s
         Utilities.transcode_unbounded_range(@value)
       end
+      
+      def to_db
+        
+      end
     end
   end
 end

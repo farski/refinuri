@@ -15,6 +15,10 @@ module Refinuri
         return self
       end
       
+      def [](filter_name)
+        @filters[filter_name]# && @filters[filter_name].value
+      end
+      
       def to_h
         filters = Hash.new
         @filters.each { |key,value| filters[key] = value.value }
@@ -95,6 +99,10 @@ module Refinuri
       
       def delete(value)
         @value = nil
+      end
+      
+      def to_db
+        @value
       end
     end
   end

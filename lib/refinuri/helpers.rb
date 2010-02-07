@@ -6,6 +6,7 @@ module Refinuri
       link_to(name,options,html_options)
     end
     
+    # TODO needs to get cleaned up
     def toggle_filter_with_link(name, toggle_filter, options = nil, html_options = nil)
       options = options || params
     

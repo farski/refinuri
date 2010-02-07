@@ -38,6 +38,15 @@ class TestRefinuri < Test::Unit::TestCase
       should "return a normal looking Hash" do
         assert_equal @hsh, @set.to_h
       end
+      
+      should "return the values of individual filters upon request" do
+        assert_equal ['apple','banana'], @set[:name].value
+        assert_equal 0..1, @set[:price].value
+      end
+      
+      should "return nil if the request filter doesn't exist" do
+        assert_nil @set[:nofilter]
+      end
     end
   end
 end

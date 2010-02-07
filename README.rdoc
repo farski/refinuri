@@ -1,7 +1,0 @@
-= refinuri
-
-Description goes here.
-
-== Copyright
-
-Copyright (c) 2010 Chris Kalafarski. See LICENSE for details.
