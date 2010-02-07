@@ -21,6 +21,14 @@ module Refinuri
         return filters
       end
       
+      def to_url
+        string_array = Array.new
+        @filters.each do |name,filter_obj|
+          string_array << "#{name}:#{filter_obj.to_s}"
+        end
+        return string_array.join(';')
+      end
+      
       private        
         def modify_filters(hash, function = :create)
           case function

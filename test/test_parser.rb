@@ -3,7 +3,7 @@ require 'helper'
 class TestParser < Test::Unit::TestCase
   context "The URL :filters parser" do
     setup do
-      @filter_string = "name:apple,banana,cherry;price:0-1;weight:4+;spots:-4"
+      @filter_string = "name:apple,banana,cherry;price:0-1;weight:4+;spots:4-"
     end
     
     should "parse the names as an array" do
@@ -21,6 +21,16 @@ class TestParser < Test::Unit::TestCase
     
     should "parse the spots as a string" do
       assert_equal '..4', Refinuri::Parser.parse_url(@filter_string).filters[:spots].value
+    end
+  end
+
+  context "The object parser" do
+    setup do
+      @set = Refinuri::Base::FilterSet.new({ :name => ['apple','banana', 'cherry'], :price => 0..1, :weight => '4..' })
+    end
+    
+    should "return a nicely formed URL string" do
+      assert_equal 'price:0-1;name:apple,banana,cherry;weight:4+', @set.to_url
     end
   end
 end

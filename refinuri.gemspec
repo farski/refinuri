@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/refinuri/filters.rb",
      "lib/refinuri/helpers.rb",
      "lib/refinuri/parser.rb",
+     "refinuri.gemspec",
      "test/helper.rb",
      "test/test_array_filters.rb",
      "test/test_helpers.rb",
