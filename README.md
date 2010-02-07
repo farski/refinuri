@@ -59,7 +59,7 @@ The hope is that with most of the heavy lifting being done automatically and in 
 
 ### Common API aspects
 
-##### URL parsing
+#### URL parsing
 	
 	>> Refinuri::Parser.parse_url('name:apple,banana,cherry')
 	=> #<Refinuri::Base::FilterSet:0x1003ad300>
