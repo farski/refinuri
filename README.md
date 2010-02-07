@@ -15,7 +15,7 @@ A 'traditional' style URL with standard query strings such as
 
 Will become
 
-	craigslist.org/search/housing/type:loft;price:500-1000;pets:cats,dogs;bedrooms:2
+	craigslist.org/search/housing/type:loft;price:500-1000;pets:cats,dogs;bedrooms:2/
 	
 ### Internal interface to filters
 
