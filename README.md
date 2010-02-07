@@ -1,8 +1,9 @@
 # Refinuri
 
 Refinuri provides two primary functions related to querying and filtering data:
-* a simple way to produce pretty, meaningful URLs, even with complex query strings
-* a standardized, extensible interface to filtering metadata
+
++ a simple way to produce pretty, meaningful URLs, even with complex query strings
++ a standardized, extensible interface to filtering metadata
 
 ## In practice
 
@@ -66,7 +67,7 @@ The hope is that with most of the heavy lifting being done automatically and in 
 #### Generating URL string
 	
 	>> @filter_set.to_url
-	>> 'name:apple,banana,cherry'
+	=> 'name:apple,banana,cherry'
 	
 #### Creating and modifying FilterSets
 
