@@ -183,3 +183,4 @@ If you would like to simply query an ActiveRecord object against all the filters
 	>> toggle_filter_with_link("Apple", { :name => 'apple' })
 
 ### Example Application
+*coming soon...
