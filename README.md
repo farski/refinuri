@@ -63,7 +63,12 @@ The hope is that, with most of the heavy lifting being done automatically and in
 
 	@products = Product.filtered(@filters)
 	
-#### products/index.html.erb
+#### products/index.html.erb ####
+
+	<%= filter_with_link("Price less than $50", { :price => '..50' }) %>
+	<% @products.each do |product| %>
+		<%= product.name %>
+	<% end %>
 	
 ## API ##
 
