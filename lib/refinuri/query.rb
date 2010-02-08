@@ -1,5 +1,5 @@
 module Refinuri
-  module Interface
+  module Query
     def filtered(filterset)
       filterset.filters.each do |name,filter_obj|
         self.where(filter_obj.to_db)

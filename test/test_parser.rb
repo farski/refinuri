@@ -32,6 +32,7 @@ class TestParser < Test::Unit::TestCase
     end
     
     should "return a nicely formed URL string" do
+      # TODO this needs to get tested based on inclusion, not an exact string match
       # assert_equal 'price:0-1;name:apple,banana,cherry;weight:4+', @set.to_url
     end
   end
