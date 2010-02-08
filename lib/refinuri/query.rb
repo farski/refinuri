@@ -1,11 +1,15 @@
 module Refinuri
   module Query
     def filtered(filterset)
-      filterset.filters.each do |name,filter_obj|
-        self.where(filter_obj.to_db)
+      filtered_self = self
+    
+      if filterset
+        filterset.filters.each do |name,filter_obj|
+          filtered_self = filtered_self.where(filter_obj.to_db)
+        end
       end
-      
-      return self
+    
+      return filtered_self.scoped
     end
   end
 end
