@@ -5,6 +5,12 @@ Refinuri provides two primary functions related to querying and filtering data:
 + a simple way to produce pretty, meaningful URLs, even with complex query strings
 + a standardized, extensible interface to filtering metadata
 
+	@filters = Refinuri::Parser.parse_url('name:apple,banana,cherry;price:0-5;age:7-')
+	# sets up a new FilterSet based on the filter part of a URL
+	
+	Product.filtered(@filters)
+	# automatically applies all the filters to an ActiveRecord object just as though each were it's own #where()
+
 ## In practice
 
 ### Pretty URLs
@@ -150,15 +156,19 @@ Each data type has a #to_db method which returns a value suitable for use as the
 	@set = Refinuri::Base::FilterSet.new({ :price => 10..20, :age => '10..' })
 	
 	Product.where(@set[:price].to_db)
-	# is equivilent to
+	# is equivalent to
 	Product.where(:price => 10..20)
 	
 and
 	Product.where(@set[:age].to_db)
-	# is equivilent to
+	# is equivalent to
 	Product.where('age >= 10')
 	
+If you would like to simply query an ActiveRecord object against all the filters in a FilterSet, the #filtered() method comes in handy
 
+	Product.filtered(@set)
+	# is equivalent to
+	Product.where(:price => 10..20).where('age >= 10')	
 	
 #### Helpers
 	
