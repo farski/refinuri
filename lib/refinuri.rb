@@ -12,4 +12,4 @@ module Refinuri
   include Refinuri::Parser
 end
 
-ActionView::Base.send :include, Refinuri::Helpers
+# ActionView::Base.send :include, Refinuri::Helpers

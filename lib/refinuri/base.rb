@@ -46,13 +46,13 @@ module Refinuri
           hash.each do |key,value|
             delete_filters({ key => value }) if @filters.has_key?(key)
             @filters[key] = case value
-              when Array then Filters::Array.new(value)
-              when Range then Filters::Range.new(value)
+              when Array then Filters::Array.new(key,value)
+              when Range then Filters::Range.new(key,value)
               when String
                 case value
-                  when /\d\.\./ then Filters::UnboundedRange.new(value)
-                  when /\.\.\d/ then Filters::UnboundedRange.new(value)
-                  else Filters::Array.new([value])
+                  when /\d\.\./ then Filters::UnboundedRange.new(key,value)
+                  when /\.\.\d/ then Filters::UnboundedRange.new(key,value)
+                  else Filters::Array.new(key,[value])
                 end
             end
           end
@@ -88,8 +88,9 @@ module Refinuri
     end
 
     class Filter
-      attr_reader :value
-      def initialize(value)
+      attr_reader :name, :value
+      def initialize(name,value)
+        @name = name
         @value = value
       end
       

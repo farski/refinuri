@@ -25,8 +25,15 @@ module Refinuri
         Utilities.transcode_unbounded_range(@value)
       end
       
+      def numeric_value
+        @value.sub(/\.{2,3}/, '')
+      end
+      
       def to_db
-        
+        case @value
+          when /^\.\./ then "#{@name} <= #{self.numeric_value}"
+          when /\.\.$/ then "#{@name} >= #{self.numeric_value}"
+        end
       end
     end
   end

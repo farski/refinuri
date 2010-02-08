@@ -69,6 +69,48 @@ The hope is that with most of the heavy lifting being done automatically and in 
 	>> @filter_set.to_url
 	=> 'name:apple,banana,cherry'
 	
+#### Available data types
+
+Currently supported datatypes include:
+
+##### Arrays
+
+	# in URLs an array is represented as
+	key:item1,item2,item3
+	# which are parsed as standard Ruby arrays, available through the FilterSet
+	@set[:key] => ['item1','item2','item3']
+
+##### Bounded ranges
+
+	# in URLs a range is represented as
+	key:10-20
+	# which are parsed as standard Ruby ranges, available through the FilterSet
+	@set[:key] => 10..20
+
+(Support for both inclusive and exclusive ranges is not yet included)
+
+##### Unbounded ranges
+
+Unbounded ranges are a non-standard datatype, which allows for a convenient way of defining only an upper- or lower-bound on a range.
+
+Lower-bound ranges
+
+	# represented in URLs as
+	key:10+
+	# are parsed into strings in the format
+	@set[:key] => '10..'
+	# and provides a convenience method for use in an ActiveRecord #where
+	@set[:key].to_db => 'key >= 10'
+
+Upper-bound ranges
+
+	# represented in URLs as
+	key:10+
+	# are parsed into strings in the format
+	@set[:key] => '10..'
+	# and provides a convenience method for use in an ActiveRecord #where
+	@set[:key].to_db => 'key <= 10'
+	
 #### Creating and modifying FilterSets
 
 New filters a populated with a hash
@@ -94,6 +136,10 @@ Changes that are not explicitly stated as a CRUD function are assumed to be UPDA
 	# explicit DELETE
 	>> @filter.merge!({ :delete => { :name => nil } })
 	# @filter[:name] => nil
+
+#### Using filters with ActiveRecord
+
+
 	
 #### Helpers
 	
