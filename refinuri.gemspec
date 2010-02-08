@@ -5,22 +5,24 @@
 
 Gem::Specification.new do |s|
   s.name = %q{refinuri}
-  s.version = "0.5.1"
+  s.version = "0.5.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Kalafarski"]
-  s.date = %q{2010-02-07}
+  s.date = %q{2010-02-08}
   s.description = %q{Helps clean up complex URLs with filtering query string, like you may find in an online store}
   s.email = %q{chris@farski.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.md"
+     "README.md",
+     "TODO"
   ]
   s.files = [
     ".gitignore",
      "LICENSE",
      "README.md",
      "Rakefile",
+     "TODO",
      "VERSION",
      "lib/refinuri.rb",
      "lib/refinuri/base.rb",
@@ -29,11 +31,13 @@ Gem::Specification.new do |s|
      "lib/refinuri/parser.rb",
      "lib/refinuri/query.rb",
      "lib/refinuri/utilities.rb",
+     "refinuri-0.5.1.gem",
      "refinuri.gemspec",
      "test/helper.rb",
      "test/test_array_filters.rb",
      "test/test_helpers.rb",
      "test/test_parser.rb",
+     "test/test_rails_integration.rb",
      "test/test_range_filters.rb",
      "test/test_refinuri.rb",
      "test/test_unbounded_range_filters.rb",
@@ -49,6 +53,7 @@ Gem::Specification.new do |s|
      "test/test_array_filters.rb",
      "test/test_helpers.rb",
      "test/test_parser.rb",
+     "test/test_rails_integration.rb",
      "test/test_range_filters.rb",
      "test/test_refinuri.rb",
      "test/test_unbounded_range_filters.rb",
