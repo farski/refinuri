@@ -14,5 +14,5 @@ module Refinuri
   include Refinuri::Query
 end
 
-ActionView::Base.send :include, Refinuri::Helpers
-ActiveRecord::Base.send :extend, Refinuri::Query
+ActionView::Base.send(:include, Refinuri::Helpers)  if Object.const_defined?("ActionView")
+ActiveRecord::Base.send(:extend, Refinuri::Query) if Object.const_defined?("ActiveRecord")

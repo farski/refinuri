@@ -1,0 +1,4 @@
+[ ] get ranges and unbounded ranges working with inclusive/exclusive sets
+[ ] make it so the helpers don't assume filters are stored in @filter
+[ ] get tests for helpers and ActiveRecord mixins working
+[?] why do tests break with the includes in refiuri.rb?
