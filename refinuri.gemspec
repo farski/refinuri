@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "lib/refinuri/base.rb",
      "lib/refinuri/filters.rb",
      "lib/refinuri/helpers.rb",
+     "lib/refinuri/interface.rb",
      "lib/refinuri/parser.rb",
      "lib/refinuri/utilities.rb",
      "refinuri.gemspec",

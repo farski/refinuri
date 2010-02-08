@@ -23,6 +23,7 @@ module Refinuri
           when /,/ then string.split(',') # array
           when /\+$/ then Utilities.transcode_unbounded_range(string) #greater than
           when /\-$/  then Utilities.transcode_unbounded_range(string) #less than
+          else string
         end
       end
   end

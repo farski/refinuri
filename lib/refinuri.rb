@@ -14,5 +14,5 @@ module Refinuri
   include Refinuri::Interface
 end
 
-ActionView::Base.send :include, Refinuri::Helpers
-ActionView::Base.send :include, Refinuri::Helpers
+# ActionView::Base.send :include, Refinuri::Helpers
+# ActionView::Base.send :include, Refinuri::Helpers

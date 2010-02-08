@@ -158,6 +158,7 @@ and
 	# is equivilent to
 	Product.where('age >= 10')
 	
+
 	
 #### Helpers
 	
