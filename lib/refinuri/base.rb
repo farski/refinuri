@@ -103,7 +103,7 @@ module Refinuri
       end
       
       def to_db
-        @value
+        { @name => @value }
       end
     end
   end

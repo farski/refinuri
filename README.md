@@ -77,6 +77,7 @@ Currently supported datatypes include:
 
 	# in URLs an array is represented as
 	key:item1,item2,item3
+	
 	# which are parsed as standard Ruby arrays, available through the FilterSet
 	@set[:key] => ['item1','item2','item3']
 
@@ -84,6 +85,7 @@ Currently supported datatypes include:
 
 	# in URLs a range is represented as
 	key:10-20
+	
 	# which are parsed as standard Ruby ranges, available through the FilterSet
 	@set[:key] => 10..20
 
@@ -97,17 +99,21 @@ Lower-bound ranges
 
 	# represented in URLs as
 	key:10+
+	
 	# are parsed into strings in the format
 	@set[:key] => '10..'
+	
 	# and provides a convenience method for use in an ActiveRecord #where
 	@set[:key].to_db => 'key >= 10'
 
 Upper-bound ranges
 
 	# represented in URLs as
-	key:10+
+	key:10-
+	
 	# are parsed into strings in the format
-	@set[:key] => '10..'
+	@set[:key] => '..10'
+	
 	# and provides a convenience method for use in an ActiveRecord #where
 	@set[:key].to_db => 'key <= 10'
 	
@@ -139,7 +145,19 @@ Changes that are not explicitly stated as a CRUD function are assumed to be UPDA
 
 #### Using filters with ActiveRecord
 
+Each data type has a #to_db method which returns a value suitable for use as the argument for ActiveRecord's #where method
 
+	@set = Refinuri::Base::FilterSet.new({ :price => 10..20, :age => '10..' })
+	
+	Product.where(@set[:price].to_db)
+	# is equivilent to
+	Product.where(:price => 10..20)
+	
+and
+	Product.where(@set[:age].to_db)
+	# is equivilent to
+	Product.where('age >= 10')
+	
 	
 #### Helpers
 	
