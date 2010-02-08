@@ -5,6 +5,7 @@ Refinuri provides two primary functions related to querying and filtering data:
 + a simple way to produce pretty, meaningful URLs, even with complex query strings
 + a standardized, extensible interface to filtering metadata
 
+
 	@filters = Refinuri::Parser.parse_url('name:apple,banana,cherry;price:0-5;age:7-')
 	# sets up a new FilterSet based on the filter part of a URL
 	
