@@ -23,6 +23,8 @@ And parse it into a convenient set of filters
 Now you can pass all that filtery goodness straight into your ActiveRecord object
 	
 	Apartment.filtered(@filters)
+	# which can be scoped even further just like normal
+	Apartment.filtered(@filters).order('bedrooms DESC').limit(20).includes(:amenities)
 	
 And easily add links to your views to create, update, or delete the filters
 	
